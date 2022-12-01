@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { List } from 'src/app/shared/list.model';
+import { List } from 'src/app/list/list.model';
 import { ListService } from '../list.service';
 
 @Component({
@@ -8,17 +8,19 @@ import { ListService } from '../list.service';
   styleUrls: ['./list-edit.component.css']
 })
 export class ListEditComponent implements OnInit {
-  @ViewChild('nameInput') nameInputRef: ElementRef;
+   @ViewChild('todoInput') todoInputRef: ElementRef;
 
-  constructor(private slList: ListService) { }
+
+  constructor(private liService: ListService) { }
 
   ngOnInit() {
   }
 
-  onAdd(){
-    const listName = this.nameInputRef.nativeElement.value;
-    const newList = new List(listName);
-    this.slList.addList(newList);
-  }
+   onAdd(){
+     const listToDo = this.todoInputRef.nativeElement.value;
+     const newList = new List(listToDo);
+     this.liService.addList(newList);
+
+   }
 
 }

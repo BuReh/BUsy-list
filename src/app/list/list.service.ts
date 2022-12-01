@@ -1,4 +1,4 @@
-import { List } from "../shared/list.model"
+import { List } from "./list.model"
 import { EventEmitter } from "@angular/core";
 
 export class ListService {

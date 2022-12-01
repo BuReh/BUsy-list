@@ -11,6 +11,8 @@ import { LoginEditComponent } from './login/login-edit/login-edit.component';
 import { ListComponent } from './list/list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ListEditComponent } from './list/list-edit/list-edit.component';
+import { TestComponent } from './test/test.component';
+import { ListService } from './list/list.service';
 
 
 @NgModule({
@@ -22,13 +24,14 @@ import { ListEditComponent } from './list/list-edit/list-edit.component';
     LoginComponent,
     LoginEditComponent,
     ListComponent,
-    ListEditComponent
+    ListEditComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
