@@ -1,25 +1,42 @@
-import { List } from "./list.model"
-import { EventEmitter } from "@angular/core";
+import { List } from "../shared/list.model"
+import { EventEmitter, Injectable } from "@angular/core";
 
+@Injectable()
 export class ListService {
-  listChanged = new EventEmitter<List[]>();
+  // listChanged = new EventEmitter<List[]>();
 
-  private lists: List[] = [
-    new List ('homework'),
-    new List ('chores')
-  ]
+  // private lists: List[] = [
+  //   new List ('homework'),
+  //   new List ('chores')
+  // ]
 
-  getList(){
-    return this.lists.slice();
-  }
+  // getList(){
+  //   return this.lists.slice();
+  // }
 
-  addList(list: List){
-    this.lists.push(list);
-    this.listChanged.emit(this.lists.slice());
-  }
+  // addList(list: List){
+  //   this.lists.push(list);
+  //   this.listChanged.emit(this.lists.slice());
+  // }
 
-  addLists(lists: List[]){
-    this.lists.push(...lists);
-    this.listChanged.emit(this.lists.slice());
+  // addLists(lists: List[]){
+  //   this.lists.push(...lists);
+  //   this.listChanged.emit(this.lists.slice());
+  // }
+
+  // removeList() {
+
+  // }
+
+
+  lists = [
+    {todo: 'homework'},
+    {todo: 'chores'}
+  ];
+
+  listChanged = new EventEmitter<string>();
+
+  addlist(todo: string){
+    this.lists.push({todo: todo});
   }
 }
