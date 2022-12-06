@@ -10,18 +10,18 @@ import { ListService } from './list.service';
 })
 export class ListComponent implements OnInit {
   @Input() list: {todo: string};
-  // lists: List[];
+  lists: {todo: string}[];
 
    constructor(private liService: ListService) { }
 
   ngOnInit(){
-    // this.lists = this.liService.getList();
-    // this.liService.listChanged
-    //   .subscribe(
-    //     (lists: List[]) => {
-    //       this.lists = lists;
-    //     }
-    //   );
+    this.lists = this.liService.getList();
+    this.liService.listChanged
+      .subscribe(
+        (lists: any) => {
+          this.lists = lists;
+        }
+      );
   }
 
 }

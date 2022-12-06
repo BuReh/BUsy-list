@@ -1,5 +1,6 @@
 import { List } from "../shared/list.model"
 import { EventEmitter, Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class ListService {
@@ -10,9 +11,9 @@ export class ListService {
   //   new List ('chores')
   // ]
 
-  // getList(){
-  //   return this.lists.slice();
-  // }
+  getList(){
+    return this.lists.slice();
+  }
 
   // addList(list: List){
   //   this.lists.push(list);
@@ -34,9 +35,10 @@ export class ListService {
     {todo: 'chores'}
   ];
 
-  listChanged = new EventEmitter<string>();
+  listChanged = new Subject<{todo:string}[]>();
 
   addlist(todo: string){
     this.lists.push({todo: todo});
+    this.listChanged.next(this.getList())
   }
 }
