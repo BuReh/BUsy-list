@@ -17,11 +17,17 @@ export class ListEditComponent {
 
   onAdd(thingsToDo: string){
     this.liService.addlist(thingsToDo);
-    console.log('something');
-   }
-
-   onDelete(){
 
    }
+
+   onDelete(thingsToDo: string){
+    this.liService.removeList();
+   }
+
+   onClear(){
+
+   }
+
+
 
 }

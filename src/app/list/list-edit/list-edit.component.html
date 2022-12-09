@@ -6,6 +6,7 @@
           <label for="todo">ToDo</label>
           <input
           type="text"
+          onfocus="this.value = ''"
           id="todo"
           class="form-control"
           #thingsToDo>
@@ -14,8 +15,8 @@
           <div class="row">
             <div class="col-xs-12">
               <button class="btn btn-success" type="button" (click)="onAdd(thingsToDo.value)">Add</button>
-              <button class="btn btn-danger" type="button" >Delete</button>
-              <button class="btn btn-primary" type="button">Clear</button>
+              <button class="btn btn-danger" type="button" (click)="onDelete(thingsToDo.value)">Delete</button>
+              <button class="btn btn-primary" type="button" onclick="document.getElementById('todo').value = ''">Clear</button>
             </div>
           </div>
         </div>

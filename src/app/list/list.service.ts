@@ -41,4 +41,9 @@ export class ListService {
     this.lists.push({todo: todo});
     this.listChanged.next(this.getList())
   }
+
+  removeList(){
+    this.lists.pop();
+    this.listChanged.next(this.getList())
+  }
 }
